@@ -1,4 +1,7 @@
 import React from 'react';
+import PokemonIndexItem from './pokemon_index_item';
+import PokemonDetailContainer from './pokemon_detail_container';
+import { Route } from 'react-router-dom';
 
 class PokemonIndex extends React.Component {
   constructor(props) {
@@ -10,17 +13,24 @@ class PokemonIndex extends React.Component {
   }
 
   render() {
-
     return (
-      <ul>
-        {
-          this.props.allPokemon.map(
-          (pokemon) => {
-            return <li key={Object.keys(pokemon)[0]}>{pokemon[Object.keys(pokemon)[0]].name}</li>;
-          }
-        )}
-      </ul>
+      <div className="Everything">
+        <ul>
+          {
+            this.props.allPokemon.map(
+            (poke) => {
+              // console.log(poke);
+              return <PokemonIndexItem
+                      key={poke.id}
+                      pokemon={poke}/>;
+            }
+          )}
+        </ul>
+        <Route path="/pokemon/:pokemonId"
+               component={PokemonDetailContainer} />
+      </div>
     );
+
   }
 }
 

@@ -39,6 +39,19 @@
    }
  }
 
+ .poke-img {
+   width: 100px;
+   height: 100px;
+ }
+
+ .item-img {
+   width: 75px;
+   height: 75px;
+ }
+
+ .Everything {
+   display: flex;
+ }
  nav {
    width: 900px;
    background-color: $red;
